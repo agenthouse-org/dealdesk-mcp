@@ -1,48 +1,104 @@
-# @agenthouse-org/dealdesk-mcp
+# DealDesk MCP for agenthouse
 
-Zero-dependency stdio MCP bridge for DealDesk. Forwards JSON-RPC to `POST {AGENTHOUSE_API_URL}/mcp/dealdesk`.
+Connect your AI assistant to **DealDesk** — create and update desk cards, work with quotes and the product portfolio, look up customers, and export for analysis — without leaving ChatGPT, Claude, Cursor, or Codex.
 
-No `@modelcontextprotocol/sdk`. The remote catalog lives in agenthouse (`backend/agenthouse-api/mcp/dealdesk/`).
+Brought to you by [agenthouse](https://agenthouse.org).
 
-Tracking: [neri-de/AgentHouse#180](https://github.com/neri-de/AgentHouse/issues/180)
+## What you can do
 
-## Auth
+- Create and update desk cards, including notes and stage changes  
+- Evaluate configurations and create quotes from your published portfolio  
+- Find or create companies and contacts in the customer directory  
+- Export Deal Intelligence workbooks for offline analysis  
+- Preview and confirm portfolio publish (with an explicit confirmation step)
 
-| Mode | Use |
+Destructive delete operations are not available through MCP. Soft-close cards by updating their stage instead.
+
+## Before you start
+
+You need:
+
+1. An **agenthouse** account with DealDesk access to your tenant  
+2. Either:
+   - **Connect (recommended for ChatGPT / Claude remote):** sign in and grant DealDesk access when prompted, or  
+   - **A project API key** (for Cursor, Claude Desktop, Codex, and other local hosts): create one under **Access management → API keys** in the agenthouse workspace. Grant at least `dealdesk:read`, or `dealdesk:access` for full write access.
+
+You also need **Node.js 20+** for the local connector.
+
+## Install
+
+### Option A — Remote MCP (ChatGPT, Claude, and similar)
+
+Add DealDesk as a remote MCP server in your host’s connector settings:
+
+| Setting | Value |
 | --- | --- |
-| **OAuth Connect** | ChatGPT / Claude remote MCP at `/mcp/dealdesk` — authorize, pick project, grant DealDesk scope |
-| **Project API key** | This stdio package — `dealdesk:read`, `dealdesk:write`, or `dealdesk:access` |
+| MCP URL | `https://api.agenthouse.org/mcp/dealdesk` |
+| Authentication | OAuth (Connect) |
 
-## Cursor / Claude Desktop / Codex
+When Connect opens, sign in with agenthouse, choose your project (tenant), and grant DealDesk access. Your host will then list DealDesk tools automatically.
+
+### Option B — Local connector (Cursor, Claude Desktop, Codex)
+
+Use the DealDesk MCP package as a local stdio server. It talks securely to agenthouse with your project API key.
+
+#### Cursor
+
+1. Open **Cursor Settings → MCP**  
+2. Add a server with the configuration below  
+3. Restart MCP / reload the window if prompted  
 
 ```json
 {
   "mcpServers": {
     "dealdesk": {
       "command": "npx",
-      "args": ["-y", "@agenthouse-org/dealdesk-mcp"],
+      "args": ["-y", "github:agenthouse-org/dealdesk-mcp"],
       "env": {
         "AGENTHOUSE_API_URL": "https://api.agenthouse.org",
-        "AGENTHOUSE_API_KEY": "ahk_…",
-        "AGENTHOUSE_PROJECT_ID": "your-project-id"
+        "AGENTHOUSE_API_KEY": "ahk_your_project_api_key",
+        "AGENTHOUSE_PROJECT_ID": "YOUR_TENANT_ID"
       }
     }
   }
 }
 ```
 
-Local development keys use the `local_…` prefix. Point `AGENTHOUSE_API_URL` at your local API when testing.
+#### Claude Desktop
+
+Edit your Claude Desktop MCP config (typically `claude_desktop_config.json`) and add the same `mcpServers.dealdesk` block as above, then restart Claude Desktop.
+
+#### Codex / other stdio hosts
+
+Use the same command, arguments, and environment variables as Cursor.
+
+#### Environment variables
+
+| Variable | Required | Description |
+| --- | --- | --- |
+| `AGENTHOUSE_API_KEY` | Yes | Project API key from agenthouse Access management |
+| `AGENTHOUSE_PROJECT_ID` | Recommended | Default tenant id when a tool call omits `projectId` |
+| `AGENTHOUSE_API_URL` | No | Defaults to `https://api.agenthouse.org` |
+
+Keep your API key private. Do not commit it to git or share it in chat logs.
+
+### Verify the connection
+
+After install, ask your assistant something concrete, for example:
+
+> List open DealDesk cards for my project.
+
+You should see DealDesk tools available (such as listing cards or creating a quote from a configuration). If authentication fails, renew Connect or check that the API key has DealDesk permission for that tenant.
 
 ## Skills
 
-Shipped skill prompts are listed by the remote server (`dealdesk.list_skills` / `prompts/list`). See `skills/` in this repo for human-readable copies.
+DealDesk MCP includes guided skills for common sales workflows (create a card, quote from portfolio, find or create a customer, export for analysis, publish portfolio with preview). Your host may surface these as prompts or skills depending on the product.
 
-Guardrails: no DELETE tools; export via `dealdesk.export_intelligence`; portfolio publish requires preview + `confirm=true`.
+## Support
 
-## Publish
-
-Package stays `private: true` until agenthouse approves an npm release.
+- Product and product docs: [agenthouse.org](https://agenthouse.org)  
+- Issues with this connector: [GitHub Issues](https://github.com/agenthouse-org/dealdesk-mcp/issues)
 
 ## License
 
-MIT
+MIT © agenthouse

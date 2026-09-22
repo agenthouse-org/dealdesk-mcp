@@ -2,13 +2,13 @@
 'use strict';
 
 /**
- * @agenthouse-org/dealdesk-mcp — zero-dependency stdio MCP bridge.
- * Forwards JSON-RPC to POST {AGENTHOUSE_API_URL}/mcp/dealdesk with a project API key.
+ * DealDesk MCP local connector for agenthouse.
+ * Speaks MCP over stdio and connects to the agenthouse DealDesk MCP endpoint.
  *
  * Env:
  *   AGENTHOUSE_API_URL     (default https://api.agenthouse.org)
- *   AGENTHOUSE_API_KEY     project API key (ahk_… / local_…)
- *   AGENTHOUSE_PROJECT_ID  default projectId injected into tool arguments when omitted
+ *   AGENTHOUSE_API_KEY     project API key from Access management
+ *   AGENTHOUSE_PROJECT_ID  default tenant id when a tool omits projectId
  */
 
 const http = require('http');
@@ -25,7 +25,7 @@ function log(msg) {
 }
 
 if (!API_KEY) {
-  log('AGENTHOUSE_API_KEY is required (project API key with dealdesk:read|write|access)');
+  log('AGENTHOUSE_API_KEY is required. Create a project API key in agenthouse Access management (DealDesk permission).');
   process.exit(1);
 }
 
@@ -121,4 +121,4 @@ rl.on('line', (line) => {
 });
 rl.on('close', () => process.exit(0));
 
-log(`bridging stdio → ${API_URL}/mcp/dealdesk`);
+log(`connected to ${API_URL}`);

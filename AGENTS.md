@@ -1,12 +1,9 @@
-# agenthouse dealdesk-mcp
+# Contributing
 
-DealDesk-scoped MCP courtesy package. Keep this catalog in lockstep with DealDesk HTTP and `backend/agenthouse-api/api.yaml` in neri-de/AgentHouse.
+Thank you for your interest in DealDesk MCP.
 
-- Generate tools from annotated OpenAPI (`x-agenthouse.mcp`). Do not hand-register DealDesk tools.
-- Never expose DELETE or customer-impersonation operations (`expose: false`).
-- OAuth Connect is primary; project API keys are the stdio/CI fallback.
-- Shipped skills only in v1. No tenant skill admin.
-- MCP Apps widgets are optional; tools must work without UI.
-- Do not publish to npm until that approval is explicit.
+This repository is the customer-facing connector for DealDesk on agenthouse. Please keep documentation and package metadata professional and suitable for end users: clear install steps, no internal implementation paths, and no references to private issue trackers.
 
-Tracking: https://github.com/neri-de/AgentHouse/issues/180
+Report bugs and feature requests via [GitHub Issues](https://github.com/agenthouse-org/dealdesk-mcp/issues).
+
+For product questions, contact your agenthouse representative or visit [agenthouse.org](https://agenthouse.org).

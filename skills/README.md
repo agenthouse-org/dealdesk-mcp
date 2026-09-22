@@ -1,6 +1,9 @@
-# DealDesk MCP skills
+# DealDesk skills
 
-Human-readable copies of skills served by `POST /mcp/dealdesk`.
-Hosts should prefer `dealdesk.list_skills` / `prompts/list` from the live server.
+These notes describe common workflows the DealDesk MCP connector supports. Your AI host may also load live skill descriptions from the agenthouse DealDesk server.
 
-Never call DELETE tools. Soft-close cards with `stage` updates. Prefer `dealdesk.export_intelligence` over unbounded list loops.
+## Guidelines
+
+- Prefer update and soft-close over delete. Delete is not offered through MCP.  
+- Prefer the export skill for analysis instead of paging through large lists endlessly.  
+- For portfolio publish, always review the preview and confirm before publishing.
