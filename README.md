@@ -1,12 +1,15 @@
 # DealDesk MCP for agenthouse
 
-Connect your AI assistant to **DealDesk** — create and update desk cards, work with quotes and the product portfolio, look up customers, and export for analysis — without leaving ChatGPT, Claude, Cursor, or Codex.
+Connect your AI assistant to **DealDesk** — create and update desk cards, log email and status updates, work with quotes and the product portfolio, look up customers, and export for analysis — without leaving ChatGPT, Claude, Cursor, or Codex.
 
 Brought to you by [agenthouse](https://agenthouse.org).
+
+This package is an **MCP connector** (Model Context Protocol): a remote MCP URL for cloud hosts, plus this local stdio bridge for desktop hosts. It is **not** a ChatGPT Plugin, Cursor IDE extension, or browser plugin.
 
 ## What you can do
 
 - Create and update desk cards, including notes and stage changes  
+- Log inbound/outbound email and other status updates on a card timeline  
 - Evaluate configurations and create quotes from your published portfolio  
 - Find or create companies and contacts in the customer directory  
 - Export Deal Intelligence workbooks for offline analysis  
@@ -92,7 +95,7 @@ You should see DealDesk tools available (such as listing cards or creating a quo
 
 ## Skills
 
-DealDesk MCP includes guided skills for common sales workflows (create a card, quote from portfolio, find or create a customer, export for analysis, publish portfolio with preview). Your host may surface these as prompts or skills depending on the product.
+DealDesk MCP includes guided skills for common sales workflows (create a card, log email/status updates, quote from portfolio, find or create a customer, export for analysis, publish portfolio with preview). Your host may surface these as prompts or skills depending on the product. See [`skills/`](./skills/).
 
 ## Support
 
