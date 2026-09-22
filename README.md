@@ -6,6 +6,10 @@ Brought to you by [agenthouse](https://agenthouse.org).
 
 This repository is the **DealDesk plugin**: marketplace-oriented packaging (skills + install docs) with a local stdio bridge. Tools run over the agenthouse **MCP** endpoint (`POST /mcp/dealdesk`). Host marketplaces (ChatGPT/Codex Plugins, Claude plugins, Cursor plugins) can list this package while the remote MCP URL remains the shared runtime.
 
+## For AI agents
+
+If you are an AI assistant helping someone install DealDesk, follow **[install-for-agents.md](./install-for-agents.md)** (decision tree, host-specific steps, verify, troubleshooting). Do not improvise package names or MCP URLs.
+
 ## What you can do
 
 - Create and update desk cards, including notes and stage changes  
