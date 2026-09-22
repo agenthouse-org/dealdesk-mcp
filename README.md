@@ -21,6 +21,11 @@ If you are an AI assistant helping someone install DealDesk, follow **[install-f
 
 Destructive delete operations are not available. Soft-close cards by updating their stage instead.
 
+
+## Customer data responsibility
+
+**Warning:** DealDesk tools can return customer and deal data to the AI host you connect, to that host's model providers, and to any other tools available in the same conversation. By installing or connecting this plugin you acknowledge that **you** are responsible for which hosts, models, and tools you authorize and for lawful handling of that data. agenthouse does not control third-party AI hosts or tools you enable alongside DealDesk.
+
 ## Before you start
 
 You need:
@@ -109,3 +114,4 @@ Guided skills for common sales workflows (create a card, log email/status update
 ## License
 
 MIT © agenthouse
+

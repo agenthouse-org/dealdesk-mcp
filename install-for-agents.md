@@ -15,6 +15,15 @@ Read this file end to end before editing their machine. Do not invent URLs, pack
 
 ---
 
+
+## Customer data responsibility (tell the human)
+
+Before completing Connect or creating an API key, tell the user clearly:
+
+> DealDesk tools can return customer and deal data to this AI host and to any other tools in the same conversation. **You** are responsible for which hosts, models, and tools you authorize and for lawful handling of that data.
+
+Do not skip this warning. Prefer pointing them at the Connect consent screen or the API-key form in agenthouse, which also show it.
+
 ## Goal
 
 DealDesk tools are available in the user’s host, authenticated to **their** project, and a simple list-cards prompt succeeds.
@@ -184,3 +193,4 @@ Expect names such as `dealdesk.list_cards`, `dealdesk.create_card`, `dealdesk.lo
 ## Human-readable install
 
 For a shorter human overview, see [README.md](./README.md). Contributor notes: [AGENTS.md](./AGENTS.md).
+

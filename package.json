@@ -2,7 +2,7 @@
   "name": "@agenthouse-org/dealdesk-plugin",
   "version": "0.1.0",
   "private": true,
-  "description": "DealDesk plugin for agenthouse — marketplace-installable skills and MCP tools for ChatGPT, Claude, Cursor, and Codex",
+  "description": "DealDesk plugin for agenthouse — marketplace-installable skills and MCP tools for ChatGPT, Claude, Cursor, and Codex Customer and deal data returned by DealDesk tools may be disclosed to the connected AI host and other tools in the same conversation; the operator remains responsible for that data.",
   "license": "MIT",
   "homepage": "https://github.com/agenthouse-org/dealdesk-plugin",
   "repository": {
@@ -41,3 +41,4 @@
     "start": "node bin/dealdesk-plugin.js"
   }
 }
+
