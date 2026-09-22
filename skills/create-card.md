@@ -1,3 +1,7 @@
 # Create or update a desk card
 
-Create a new DealDesk card or update title and stage. Soft-close work by setting an appropriate closed stage rather than deleting.
+Tools: `dealdesk.create_card`, `dealdesk.patch_card`, `dealdesk.get_card`, `dealdesk.list_cards`
+
+Create a card or update title, stage, and **description**. Soft-close work by setting an appropriate closed stage rather than deleting.
+
+Use `description` for the main card body text. Use `dealdesk.add_card_note` only for structured notes (title + body), not as a substitute for the card description.
