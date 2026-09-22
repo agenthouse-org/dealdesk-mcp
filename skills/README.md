@@ -15,8 +15,10 @@ These notes describe common workflows the DealDesk MCP connector supports. Your 
 | --- | --- |
 | [create-card.md](./create-card.md) | Create or update a desk card |
 | [log-card-activity.md](./log-card-activity.md) | Notes, comments, tasks, and email touchpoints |
+| [craft-quote.md](./craft-quote.md) | Guided classic-first quote authoring (customer, clone, groups, refine) |
 | [quote-from-portfolio.md](./quote-from-portfolio.md) | Evaluate and create a quote from the published portfolio |
 | [evaluate-configuration.md](./evaluate-configuration.md) | Side-effect free CPQ evaluation |
 | [find-or-create-customer.md](./find-or-create-customer.md) | Directory company/contact lookup and create |
 | [export-analysis.md](./export-analysis.md) | Bounded Deal Intelligence export |
 | [publish-portfolio.md](./publish-portfolio.md) | Preview then confirm portfolio publish |
+
