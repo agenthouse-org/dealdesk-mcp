@@ -6,6 +6,8 @@ This repository is the customer-facing plugin for DealDesk on agenthouse (skills
 
 The tool runtime lives on agenthouse at `POST /mcp/dealdesk`. Keep shipped skills aligned with that catalog.
 
+**AI agents helping a user install:** follow [install-for-agents.md](./install-for-agents.md).
+
 Report bugs and feature requests via [GitHub Issues](https://github.com/agenthouse-org/dealdesk-plugin/issues).
 
 For product questions, contact your agenthouse representative or visit [agenthouse.org](https://agenthouse.org).
