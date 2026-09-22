@@ -1,16 +1,18 @@
 {
   "name": "@agenthouse-org/dealdesk-mcp",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
-  "description": "DealDesk MCP server and courtesy package for agenthouse",
+  "description": "DealDesk MCP stdio bridge for agenthouse (zero dependency)",
   "license": "MIT",
   "bin": {
     "dealdesk-mcp": "./bin/dealdesk-mcp.js"
   },
   "files": [
     "bin",
+    "skills",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "AGENTS.md"
   ],
   "engines": {
     "node": ">=20"

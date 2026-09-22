@@ -1,29 +1,19 @@
 # @agenthouse-org/dealdesk-mcp
 
-DealDesk-scoped MCP server and courtesy package for [agenthouse](https://github.com/neri-de/AgentHouse). Connect Claude, ChatGPT, Cursor, Codex, Copilot, and other MCP hosts to DealDesk: cards, quotes, CPQ portfolio, directory, and export.
+Zero-dependency stdio MCP bridge for DealDesk. Forwards JSON-RPC to `POST {AGENTHOUSE_API_URL}/mcp/dealdesk`.
 
-This repository is a scaffold. The MCP server is not implemented yet. The npm package is **not published**.
+No `@modelcontextprotocol/sdk`. The remote catalog lives in agenthouse (`backend/agenthouse-api/mcp/dealdesk/`).
 
 Tracking: [neri-de/AgentHouse#180](https://github.com/neri-de/AgentHouse/issues/180)
 
-## v1 intent
+## Auth
 
-- OAuth Connect is the primary install (login, project, DealDesk scopes). Project API keys are the fallback for stdio/CI.
-- Small core `dealdesk.*` tools plus shipped skills. Progressive discovery for CPQ authoring, orders, and admin.
-- No DELETE tools. HTTP DELETE stays on the API. Soft close/archive via PATCH remains where DealDesk already supports it.
-- No customer-impersonation tools (accept-on-behalf, public accept, confirm-on-behalf).
-- MCP Apps widgets (card summary, quote totals, publish preview) on hosts that render UI. Tools-only hosts still work.
-- Catalog stays in lockstep with the agenthouse DealDesk OpenAPI contract.
+| Mode | Use |
+| --- | --- |
+| **OAuth Connect** | ChatGPT / Claude remote MCP at `/mcp/dealdesk` — authorize, pick project, grant DealDesk scope |
+| **Project API key** | This stdio package — `dealdesk:read`, `dealdesk:write`, or `dealdesk:access` |
 
-## Install (preview)
-
-Not usable until the API MCP and this package ship. Intended shapes:
-
-**ChatGPT / Claude (remote + OAuth)**
-
-MCP URL: `https://api.agenthouse.org/mcp/dealdesk` (exact host depends on the deployment). Connect with OAuth; pick project; grant DealDesk access.
-
-**Cursor / Claude Desktop / Codex (stdio + API key)**
+## Cursor / Claude Desktop / Codex
 
 ```json
 {
@@ -41,18 +31,17 @@ MCP URL: `https://api.agenthouse.org/mcp/dealdesk` (exact host depends on the de
 }
 ```
 
-Development keys use the `local_…` prefix.
+Local development keys use the `local_…` prefix. Point `AGENTHOUSE_API_URL` at your local API when testing.
 
-## Shipped skills (planned)
+## Skills
 
-- Create or update a desk card
-- Configure and create a quote from the published portfolio
-- Evaluate a configuration (no persist)
-- Find or create a company/contact
-- Export for analysis
-- Publish portfolio (preview + confirm)
+Shipped skill prompts are listed by the remote server (`dealdesk.list_skills` / `prompts/list`). See `skills/` in this repo for human-readable copies.
 
-Skills never delete and never loop unbounded.
+Guardrails: no DELETE tools; export via `dealdesk.export_intelligence`; portfolio publish requires preview + `confirm=true`.
+
+## Publish
+
+Package stays `private: true` until agenthouse approves an npm release.
 
 ## License
 
