@@ -1,10 +1,10 @@
-# DealDesk MCP for agenthouse
+# DealDesk plugin for agenthouse
 
-Connect your AI assistant to **DealDesk** — create and update desk cards, log email and status updates, work with quotes and the product portfolio, look up customers, and export for analysis — without leaving ChatGPT, Claude, Cursor, or Codex.
+Install **DealDesk** in ChatGPT, Claude, Cursor, or Codex — create and update desk cards, log email and status updates, work with quotes and the product portfolio, look up customers, and export for analysis.
 
 Brought to you by [agenthouse](https://agenthouse.org).
 
-This package is an **MCP connector** (Model Context Protocol): a remote MCP URL for cloud hosts, plus this local stdio bridge for desktop hosts. It is **not** a ChatGPT Plugin, Cursor IDE extension, or browser plugin.
+This repository is the **DealDesk plugin**: marketplace-oriented packaging (skills + install docs) with a local stdio bridge. Tools run over the agenthouse **MCP** endpoint (`POST /mcp/dealdesk`). Host marketplaces (ChatGPT/Codex Plugins, Claude plugins, Cursor plugins) can list this package while the remote MCP URL remains the shared runtime.
 
 ## What you can do
 
@@ -15,7 +15,7 @@ This package is an **MCP connector** (Model Context Protocol): a remote MCP URL 
 - Export Deal Intelligence workbooks for offline analysis  
 - Preview and confirm portfolio publish (with an explicit confirmation step)
 
-Destructive delete operations are not available through MCP. Soft-close cards by updating their stage instead.
+Destructive delete operations are not available. Soft-close cards by updating their stage instead.
 
 ## Before you start
 
@@ -32,7 +32,7 @@ You also need **Node.js 20+** for the local connector.
 
 ### Option A — Remote MCP (ChatGPT, Claude, and similar)
 
-Add DealDesk as a remote MCP server in your host’s connector settings:
+Add DealDesk as a remote MCP server / connector (or install the plugin from the host marketplace when listed):
 
 | Setting | Value |
 | --- | --- |
@@ -43,7 +43,7 @@ When Connect opens, sign in with agenthouse, choose your project (tenant), and g
 
 ### Option B — Local connector (Cursor, Claude Desktop, Codex)
 
-Use the DealDesk MCP package as a local stdio server. It talks securely to agenthouse with your project API key.
+Use this package as a local stdio MCP bridge. It talks securely to agenthouse with your project API key.
 
 #### Cursor
 
@@ -56,7 +56,7 @@ Use the DealDesk MCP package as a local stdio server. It talks securely to agent
   "mcpServers": {
     "dealdesk": {
       "command": "npx",
-      "args": ["-y", "github:agenthouse-org/dealdesk-mcp"],
+      "args": ["-y", "github:agenthouse-org/dealdesk-plugin"],
       "env": {
         "AGENTHOUSE_API_URL": "https://api.agenthouse.org",
         "AGENTHOUSE_API_KEY": "ahk_your_project_api_key",
@@ -95,12 +95,12 @@ You should see DealDesk tools available (such as listing cards or creating a quo
 
 ## Skills
 
-DealDesk MCP includes guided skills for common sales workflows (create a card, log email/status updates, quote from portfolio, find or create a customer, export for analysis, publish portfolio with preview). Your host may surface these as prompts or skills depending on the product. See [`skills/`](./skills/).
+Guided skills for common sales workflows (create a card, log email/status updates, quote from portfolio, find or create a customer, export for analysis, publish portfolio with preview). Your host may surface these as prompts or skills depending on the product. See [`skills/`](./skills/).
 
 ## Support
 
 - Product and product docs: [agenthouse.org](https://agenthouse.org)  
-- Issues with this connector: [GitHub Issues](https://github.com/agenthouse-org/dealdesk-mcp/issues)
+- Issues with this plugin: [GitHub Issues](https://github.com/agenthouse-org/dealdesk-plugin/issues)
 
 ## License
 

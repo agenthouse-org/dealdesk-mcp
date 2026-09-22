@@ -1,28 +1,31 @@
 {
-  "name": "@agenthouse-org/dealdesk-mcp",
+  "name": "@agenthouse-org/dealdesk-plugin",
   "version": "0.1.0",
   "private": true,
-  "description": "Connect AI assistants to agenthouse DealDesk via MCP",
+  "description": "DealDesk plugin for agenthouse — marketplace-installable skills and MCP tools for ChatGPT, Claude, Cursor, and Codex",
   "license": "MIT",
-  "homepage": "https://github.com/agenthouse-org/dealdesk-mcp",
+  "homepage": "https://github.com/agenthouse-org/dealdesk-plugin",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agenthouse-org/dealdesk-mcp.git"
+    "url": "git+https://github.com/agenthouse-org/dealdesk-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/agenthouse-org/dealdesk-mcp/issues"
+    "url": "https://github.com/agenthouse-org/dealdesk-plugin/issues"
   },
   "keywords": [
     "agenthouse",
     "dealdesk",
+    "plugin",
     "mcp",
     "model-context-protocol",
     "cursor",
     "claude",
-    "chatgpt"
+    "chatgpt",
+    "codex"
   ],
   "bin": {
-    "dealdesk-mcp": "./bin/dealdesk-mcp.js"
+    "dealdesk-plugin": "./bin/dealdesk-plugin.js",
+    "dealdesk-mcp": "./bin/dealdesk-plugin.js"
   },
   "files": [
     "bin",
@@ -35,6 +38,6 @@
     "node": ">=20"
   },
   "scripts": {
-    "start": "node bin/dealdesk-mcp.js"
+    "start": "node bin/dealdesk-plugin.js"
   }
 }

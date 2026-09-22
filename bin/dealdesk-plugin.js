@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * DealDesk MCP local connector for agenthouse.
+ * DealDesk plugin local connector for agenthouse.
  * Speaks MCP over stdio and connects to the agenthouse DealDesk MCP endpoint.
  *
  * Env:
@@ -21,7 +21,7 @@ const API_KEY = String(process.env.AGENTHOUSE_API_KEY || process.env.AGENTHOUSE_
 const PROJECT_ID = String(process.env.AGENTHOUSE_PROJECT_ID || '').trim();
 
 function log(msg) {
-  process.stderr.write(`[dealdesk-mcp] ${msg}\n`);
+  process.stderr.write(`[dealdesk-plugin] ${msg}\n`);
 }
 
 if (!API_KEY) {
