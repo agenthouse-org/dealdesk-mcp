@@ -7,3 +7,6 @@ Tools: `dealdesk.portfolio_summary`, `dealdesk.portfolio_evaluate`, `dealdesk.cr
 3. Call `create_quote_from_configuration` with the published `portfolioRevisionId`, `priceBookRevisionId`, and the same configuration.
 
 Do not invent prices client-side. Prefer the published revision ids returned by the API.
+
+Optional: dealdesk.update_quote_from_configuration to re-apply CPQ onto an existing draft. Pass quoteLayout and directory customer refs when creating.
+
