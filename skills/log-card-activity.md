@@ -1,29 +1,9 @@
 # Add notes and log email / status updates on a card
 
-Tools: `dealdesk.get_card`, `dealdesk.add_card_note`, `dealdesk.list_status_updates`, `dealdesk.create_status_update`, `dealdesk.log_email`
+Tools: `dealdesk.get_card`, `dealdesk.add_card_note`, `dealdesk.patch_card_note`, `dealdesk.list_status_updates`, `dealdesk.create_status_update`, `dealdesk.patch_status_update`, `dealdesk.log_email`
 
-## Notes
+Use add_card_note and patch_card_note for internal structured notes. Log inbound or outbound email with dealdesk.log_email (direction incoming or outgoing, from, to, subject, text, cardId). That creates an email_incoming or email_outgoing touchpoint. Use create_status_update for comments, tasks, calls, and meetings, and patch_status_update to change them. Never store emails as card notes.
 
-Use `dealdesk.add_card_note` for internal structured notes (title + body) on a desk card.
+Allowed tools: dealdesk.get_card, dealdesk.add_card_note, dealdesk.patch_card_note, dealdesk.list_status_updates, dealdesk.create_status_update, dealdesk.patch_status_update, dealdesk.log_email
 
-## Email (required path)
-
-Log inbound or outbound email with `dealdesk.log_email`:
-
-- `direction`: `incoming` or `outgoing`
-- `from` / `to` / `subject` / `text`
-- `cardId` of the desk card
-
-This creates a status-update **touchpoint** (`email_incoming` / `email_outgoing`) on the card timeline — the same surface the DealDesk UI uses.
-
-**Never** put email logs into `add_card_note`.
-
-## Other status updates
-
-Use `dealdesk.create_status_update` for:
-
-- `type: comment` — timeline comment (`body` required)
-- `type: task` — task (`title` required; optional due date / assignee)
-- `type: touchpoint` — `phone_call`, `meeting`, `email_incoming`, `email_outgoing`, or `misc`
-
-List existing timeline entries with `dealdesk.list_status_updates` (`entityType: desk-card` + `cardId` / `entityId`).
+Never call DELETE tools.

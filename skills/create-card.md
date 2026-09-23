@@ -2,8 +2,8 @@
 
 Tools: `dealdesk.create_card`, `dealdesk.patch_card`, `dealdesk.get_card`, `dealdesk.list_cards`
 
-Create a card or update title, stage, and **description**. Soft-close work by setting an appropriate closed stage rather than deleting.
+Use description for the main card body. Use deskDescription for a local desk-only description. companyId and contactId on create_card and patch_card map to Customer Directory accountRef and contactRef. patch_card also syncs a linked local case and quote customer link. Pass null to clear. Soft-close with a closed stage. Do not log email in notes.
 
-Use `description` for the main card body text. Use `deskDescription` for a local desk-only description when needed. Use `dealdesk.add_card_note` only for structured notes (title + body), not as a substitute for the card description.
+Allowed tools: dealdesk.create_card, dealdesk.patch_card, dealdesk.get_card, dealdesk.list_cards
 
-Do **not** use notes to log customer email. Use the [log-card-activity](./log-card-activity.md) skill (`dealdesk.log_email`).
+Never call DELETE tools.

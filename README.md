@@ -15,7 +15,8 @@ If you are an AI assistant helping someone install DealDesk, follow **[install-f
 - Create and update desk cards, including notes and stage changes  
 - Log inbound/outbound email and other status updates on a card timeline  
 - Evaluate configurations and create quotes from your published portfolio  
-- Find or create companies and contacts in the customer directory  
+- Find or create companies and contacts, and read their notes and commercial summaries  
+- Craft classic quotes, customer share links, local cases, and orders from accepted quotes  
 - Export Deal Intelligence workbooks for offline analysis  
 - Preview and confirm portfolio publish (with an explicit confirmation step)
 
@@ -99,7 +100,7 @@ You should see DealDesk tools available (such as listing cards or creating a quo
 
 ## Skills
 
-Guided skills for common sales workflows (create a card, log email/status updates, quote from portfolio, find or create a customer, export for analysis, publish portfolio with preview). Your host may surface these as prompts or skills depending on the product. See [`skills/`](./skills/).
+Guided skills for common sales workflows (cards, email and notes, classic and portfolio quotes, customers, cases, orders, export, and portfolio publish). Your host may surface these as prompts or skills depending on the product. See [`skills/`](./skills/).
 
 ## Support
 

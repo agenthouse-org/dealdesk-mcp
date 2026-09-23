@@ -1,9 +1,9 @@
-# Quote from published portfolio
+# Configure and create a quote from the published portfolio
 
-Tools: `dealdesk.portfolio_summary`, `dealdesk.portfolio_evaluate`, `dealdesk.create_quote_from_configuration`
+Tools: `dealdesk.portfolio_summary`, `dealdesk.portfolio_evaluate`, `dealdesk.create_quote_from_configuration`, `dealdesk.update_quote_from_configuration`
 
-1. Optionally call `portfolio_summary` to confirm a published revision exists.
-2. Call `portfolio_evaluate` with the configuration (side-effect free).
-3. Call `create_quote_from_configuration` with the published `portfolioRevisionId`, `priceBookRevisionId`, and the same configuration.
+Call portfolio_summary when you need the published revision. Call portfolio_evaluate with the configuration. Then create_quote_from_configuration or update_quote_from_configuration with the published portfolioRevisionId and priceBookRevisionId. Do not invent prices.
 
-Do not invent prices client-side. Prefer the published revision ids returned by the API.
+Allowed tools: dealdesk.portfolio_summary, dealdesk.portfolio_evaluate, dealdesk.create_quote_from_configuration, dealdesk.update_quote_from_configuration
+
+Never call DELETE tools.

@@ -1,9 +1,9 @@
-# Find or create a company / contact
+# Find or create a company/contact
 
-Tools: `dealdesk.list_companies`, `dealdesk.create_company`, `dealdesk.list_contacts`, `dealdesk.create_contact`
+Tools: `dealdesk.list_companies`, `dealdesk.get_company`, `dealdesk.create_company`, `dealdesk.patch_company`, `dealdesk.list_contacts`, `dealdesk.get_contact`, `dealdesk.create_contact`, `dealdesk.patch_contact`
 
-Search the customer directory first. Create only when no suitable match exists.
+Search first. Create only when no suitable match exists. Companies take legalName or name. Contacts take displayName or name. externalId is optional and is generated as local-company-<uuid> or local-contact-<uuid> when omitted. patch_company and patch_contact require expectedRevision.
 
-Companies: send `legalName` or `name` (maps to `legalName`). `externalId` is optional and auto-generated as `local-company-<uuid>` when omitted.
+Allowed tools: dealdesk.list_companies, dealdesk.get_company, dealdesk.create_company, dealdesk.patch_company, dealdesk.list_contacts, dealdesk.get_contact, dealdesk.create_contact, dealdesk.patch_contact
 
-Contacts: send `displayName` or `name` (or first/last name). `externalId` is optional and auto-generated as `local-contact-<uuid>` when omitted.
+Never call DELETE tools.

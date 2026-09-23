@@ -2,4 +2,8 @@
 
 Tools: `dealdesk.export_intelligence`
 
-Use the bounded Deal Intelligence export for offline analysis. Do not page through `list_cards` / `list_quotes` in unbounded loops to build a workbook by hand.
+Use dealdesk.export_intelligence for a bounded workbook. The result contains filename and relativePath under applications/dealdesk/exports. It does not return a server filesystem path or the file bytes. Do not page list_cards or list_quotes to build a workbook by hand.
+
+Allowed tools: dealdesk.export_intelligence
+
+Never call DELETE tools.
